@@ -8,7 +8,7 @@ class GeminiDocumentGenerator:
         # Configures the API key from your .env file
         genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
         # Selects the model specified in Milestone 1
-        self.model = genai.GenerativeModel('gemini-3.8-flash')
+        self.model = genai.GenerativeModel('gemini-3.5-flash')
 
     def generate_document(self, document_type, parties, terms, dates):
         prompt = (
