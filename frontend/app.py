@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+BACKEND_URL = st.secrets.get("BACKEND_URL", "http://localhost:8000")
 
 # Page Config and Layout
 st.set_page_config(page_title="LegalEase", layout="centered")
@@ -17,7 +18,7 @@ dates = st.text_input("Effective Date")
 if st.button("Generate Document"):
     if document_type and parties and terms and dates:
         # Send data to FastAPI backend
-        response = requests.post("http://localhost:8000/generate", json={
+        response = requests.post(f"{BACKEND_URL}/generate", json={
             "document_type": document_type,
             "parties": parties,
             "terms": terms,
